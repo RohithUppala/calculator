@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import './Calculator.css';
 
+//Creating function component 
 function Calculator() {
   const [input, setInput] = useState('');
   const [result, setResult] = useState('');
 
+  //handling the click button
   const handleClick = (value) => {
     setInput(input + value);
   };
 
+  //handling the clear button
   const handleClear = () => {
     setInput('');
     setResult('');
   };
 
+  //handling the equals with try and catch method
   const handleEquals = () => {
     try {
       const evaluatedResult = new Function('return ' + input)();
@@ -23,6 +27,7 @@ function Calculator() {
     }
   };
 
+  //returning the respective buttons 
   return (
     <div className="calculator">
       <div className="display">
@@ -53,4 +58,5 @@ function Calculator() {
   );
 }
 
+//exporting the calculator for rendering in the APP.js
 export default Calculator;
